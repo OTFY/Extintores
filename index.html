@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>XR Fire Extinguisher Simulator — Storyboard Comercial</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#E83833;--brand2:#2B2E2E;
+  --bg:#F5F5F5;--surface:#FFFFFF;--surface2:#EEEEEE;
+  --text:#2B2E2E;--muted:#5A5A5A;--border:#DDDDDD;
+}
+body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);padding:2rem 1rem 4rem}
+.wrap{max-width:960px;margin:0 auto}
+
+/* Hero */
+.hero{background:var(--brand2);border-radius:16px;padding:2.5rem 2.5rem 2rem;margin-bottom:2.5rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:280px;height:280px;border-radius:50%;background:var(--brand);opacity:0.12}
+.hero-tag{display:inline-block;background:var(--brand);color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 14px;border-radius:4px;margin-bottom:14px}
+.hero h1{font-family:'DM Sans',sans-serif;font-size:36px;font-weight:600;color:#fff;line-height:1.15;margin-bottom:10px}
+.hero p{font-size:15px;color:rgba(255,255,255,0.62);max-width:560px;line-height:1.7;font-weight:400}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:1.25rem}
+.hbadge{background:rgba(255,255,255,0.1);border:0.5px solid rgba(255,255,255,0.22);color:rgba(255,255,255,0.82);font-size:12px;padding:5px 12px;border-radius:20px;font-weight:400}
+
+/* Section label */
+.slabel{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2.5px;color:var(--brand);text-transform:uppercase;margin:2.5rem 0 1rem}
+
+/* Phases */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:2rem}
+.phase{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+.phase-num{font-family:'DM Sans',sans-serif;font-size:40px;font-weight:700;color:var(--border);line-height:1;margin-bottom:6px}
+.phase-title{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--text);margin-bottom:6px}
+.phase-desc{font-size:13px;color:var(--muted);line-height:1.55;font-weight:400}
+.phase.active{border-color:var(--brand);border-width:2px}
+.phase.active .phase-num{color:var(--brand)}
+
+/* Fire types grid */
+.fire-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:0.75rem}
+/* Litio card — personalización adicional */
+.litio-row{margin-bottom:2rem}
+.fc-card-litio{background:var(--surface);border-radius:12px;padding:1rem 1.5rem;border:2px dashed #9FA0A4;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:1.25rem}
+.litio-icon{font-size:26px;flex-shrink:0}
+.litio-class{font-family:'DM Sans',sans-serif;font-size:24px;font-weight:700;color:#9FA0A4;line-height:1;margin-right:4px}
+.litio-left{display:flex;align-items:center;gap:10px}
+.litio-name{font-size:13px;font-weight:600;color:#9FA0A4;margin-bottom:3px}
+.litio-mat{font-size:11px;color:var(--muted);font-weight:400;line-height:1.4}
+.litio-right{text-align:right;flex-shrink:0}
+.litio-badge{display:inline-block;background:#F0F0F0;border:1px solid #9FA0A4;color:#9FA0A4;font-size:10px;font-weight:700;letter-spacing:1.5px;padding:3px 10px;border-radius:4px;margin-bottom:5px}
+.litio-extintor{font-size:10px;color:var(--muted);font-style:italic;font-weight:400;display:block}
+.litio-nota{font-size:10px;color:#9FA0A4;font-weight:600;display:block;margin-top:3px}
+.fc-card{background:var(--surface);border-radius:12px;padding:1.1rem 0.8rem;text-align:center;border:2px solid transparent}
+.fc-icon{font-size:30px;margin-bottom:8px;display:block}
+.fc-class{font-family:'DM Sans',sans-serif;font-size:22px;font-weight:700;line-height:1;margin-bottom:2px}
+.fc-name{font-size:11px;font-weight:600;margin-bottom:8px;line-height:1.3}
+.fc-mat{font-size:10px;color:var(--muted);line-height:1.45;margin-bottom:8px;font-weight:400}
+.fc-sym{font-size:10px;font-weight:600;padding:3px 10px;border-radius:10px;display:inline-block}
+.fa{border-color:#2E7D32;color:#2E7D32}.fa .fc-sym{background:#E8F5E9;color:#2E7D32}
+.fb{border-color:#B71C1C;color:#B71C1C}.fb .fc-sym{background:#FFEBEE;color:#B71C1C}
+.fc2{border-color:#0D47A1;color:#0D47A1}.fc2 .fc-sym{background:#E3F2FD;color:#0D47A1}
+.fd{border-color:#E65100;color:#E65100}.fd .fc-sym{background:#FFF3E0;color:#E65100}
+.fk{border-color:#393939;color:#393939}.fk .fc-sym{background:#F0F0F0;color:#393939}
+.fc-std{font-size:9px;color:var(--muted);margin-top:4px;font-style:italic;font-weight:400}
+
+/* Flow */
+.flow{display:flex;flex-direction:column;gap:0;margin-bottom:2rem}
+.flow-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.flow-step{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem 1.1rem}
+.fs-n{font-family:'DM Sans',sans-serif;font-size:10px;font-weight:700;letter-spacing:1.5px;color:var(--brand);margin-bottom:3px}
+.fs-t{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px}
+.fs-d{font-size:12px;color:var(--muted);line-height:1.55;font-weight:400}
+.flow-arrow{text-align:center;padding:8px 0;font-size:20px;color:var(--brand);font-weight:700}
+.s-hi{border-color:var(--brand);border-width:2px}
+.s-warn{border-color:#E65100;border-width:2px}
+.s-ok{border-color:#2E7D32;border-width:2px}
+.s-hi .fs-n{color:var(--brand)}
+.s-warn .fs-n{color:#E65100}
+.s-ok .fs-n{color:#2E7D32}
+
+/* Outcomes */
+.outcomes{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:2rem}
+.outcome{border-radius:10px;padding:1.1rem 1.25rem}
+.out-ok{background:#F1F8E9;border:1px solid #A5D6A7}
+.out-fail{background:#FFF3E0;border:1px solid #FFCC80}
+.out-title{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;margin-bottom:8px}
+.out-ok .out-title{color:#2E7D32}
+.out-fail .out-title{color:#E65100}
+.out-item{font-size:12px;color:#4A5568;margin:4px 0;padding-left:14px;position:relative;line-height:1.4;font-weight:400}
+.out-item::before{content:'•';position:absolute;left:2px}
+
+/* Stats */
+.stats{background:var(--brand2);border-radius:12px;padding:1.75rem 2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:2rem;text-align:center}
+.stat-val{font-family:'DM Sans',sans-serif;font-size:30px;font-weight:700;color:#fff}
+.stat-lbl{font-size:12px;color:rgba(255,255,255,0.5);margin-top:3px;font-weight:400}
+
+/* Deliverables */
+.deliverables{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:2rem}
+.del{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1.1rem 1.25rem}
+.del-title{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:var(--text);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.del-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.del-item{font-size:12px;color:var(--muted);margin:4px 0;padding-left:14px;position:relative;line-height:1.4;font-weight:400}
+.del-item::before{content:'—';position:absolute;left:0;color:var(--brand)}
+
+/* Investment table */
+.invest{width:100%;border-collapse:collapse;margin-bottom:2rem;font-size:13px}
+.invest th{background:var(--brand2);color:#fff;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;letter-spacing:1px;padding:10px 14px;text-align:left}
+.invest td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--text);font-weight:400}
+.invest tr:last-child td{border-bottom:none}
+.invest .total td{background:var(--brand);color:#fff;font-weight:700;font-family:'DM Sans',sans-serif}
+.invest tr:nth-child(even) td{background:var(--surface2)}
+
+/* Disclaimer */
+.disclaimer{background:var(--surface);border-radius:10px;padding:1rem 1.5rem;border-left:4px solid var(--brand);margin-bottom:1rem}
+.disclaimer p{font-size:12px;color:var(--muted);line-height:1.7;font-style:italic;font-weight:400}
+
+/* Responsive */
+@media(max-width:640px){
+  .phases,.fire-grid,.flow-pair,.outcomes,.stats,.deliverables{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .hero h1{font-size:26px}
+}
+.logo-bar{padding:1.5rem 0 1rem}
+.logo-bar img{height:32px;width:auto;display:block}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- LOGO -->
+<div class="logo-bar">
+  <img src="fyware-logo.svg" alt="Fyware">
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">STORYBOARD COMERCIAL — FYWARE</div>
+  <h1>XR Fire Extinguisher<br>Simulator</h1>
+  <p>Simulador de realidad extendida para capacitación en uso de extintores. Cobertura de los 5 tipos de fuego según NOM-002-STPS-2010 con evaluación en tiempo real y técnica PASS.</p>
+  <div class="hero-badges">
+    <span class="hbadge">Meta Quest 3 Standalone</span>
+    <span class="hbadge">Unity 2022/2023 LTS</span>
+    <span class="hbadge">NOM-002-STPS-2010</span>
+    <span class="hbadge">Técnica PASS</span>
+    <span class="hbadge">Sin PC requerida</span>
+    <span class="hbadge">Audio TTS en español</span>
+  </div>
+</div>
+
+<!-- FASES -->
+<div class="slabel">Fases de la experiencia</div>
+<div class="phases">
+  <div class="phase">
+    <div class="phase-num">01</div>
+    <div class="phase-title">Configuración del escenario</div>
+    <div class="phase-desc">El instructor define el área de juego 2×2 m, coloca anclas de fuego (2–5) con tipo asignado y posiciona extintores estratégicamente en el entorno real.</div>
+  </div>
+  <div class="phase active">
+    <div class="phase-num">02</div>
+    <div class="phase-title">Simulación activa</div>
+    <div class="phase-desc">El participante identifica el tipo de fuego, selecciona el extintor correcto y aplica la técnica PASS bajo presión de tiempo con feedback inmediato.</div>
+  </div>
+  <div class="phase">
+    <div class="phase-num">03</div>
+    <div class="phase-title">Evaluación y debrief</div>
+    <div class="phase-desc">Reporte automático de desempeño: selección correcta/incorrecta, tiempo de respuesta por fuego y resultado global de la sesión.</div>
+  </div>
+</div>
+
+<!-- TIPOS DE FUEGO -->
+<div class="slabel">Tipos de fuego cubiertos — Alcance estándar (A / B / C / D / K)</div>
+<div class="fire-grid">
+  <div class="fc-card fa">
+    <span class="fc-icon">🌲</span>
+    <div class="fc-class">A</div>
+    <div class="fc-name">Fuegos ordinarios</div>
+    <div class="fc-mat">Madera, papel, tela, plástico, basura común</div>
+    <div class="fc-sym">▲ Verde</div>
+    <div class="fc-std">Agua / CO₂ / Polvo ABC</div>
+  </div>
+  <div class="fc-card fb">
+    <span class="fc-icon">🛢️</span>
+    <div class="fc-class">B</div>
+    <div class="fc-name">Líquidos inflamables</div>
+    <div class="fc-mat">Gasolina, aceites, solventes, pintura</div>
+    <div class="fc-sym">■ Rojo</div>
+    <div class="fc-std">CO₂ / Espuma / Polvo BC</div>
+  </div>
+  <div class="fc-card fc2">
+    <span class="fc-icon">⚡</span>
+    <div class="fc-class">C</div>
+    <div class="fc-name">Equipo eléctrico</div>
+    <div class="fc-mat">Computadoras, motores, cables, tableros</div>
+    <div class="fc-sym">● Azul</div>
+    <div class="fc-std">CO₂ / Polvo BC (no agua)</div>
+  </div>
+  <div class="fc-card fd">
+    <span class="fc-icon">⚙️</span>
+    <div class="fc-class">D</div>
+    <div class="fc-name">Metales combustibles</div>
+    <div class="fc-mat">Sodio, magnesio, aluminio en polvo, potasio</div>
+    <div class="fc-sym">★ Amarillo</div>
+    <div class="fc-std">Polvo especial Clase D</div>
+  </div>
+  <div class="fc-card fk">
+    <span class="fc-icon">🍳</span>
+    <div class="fc-class">K</div>
+    <div class="fc-name">Aceites de cocina</div>
+    <div class="fc-mat">Freidoras, grasas vegetales y animales</div>
+    <div class="fc-sym">■ Negro</div>
+    <div class="fc-std">Agente húmedo Clase K</div>
+  </div>
+</div>
+
+<!-- LITIO — Personalización adicional -->
+<div class="litio-row">
+  <div class="fc-card-litio">
+    <div class="litio-left">
+      <span class="litio-icon">🔋</span>
+      <span class="litio-class">Li-ion</span>
+    </div>
+    <div>
+      <div class="litio-name">Baterías de ión-litio</div>
+      <div class="litio-mat">Packs de baterías, montacargas eléctricos, servidores, vehículos EV, herramientas de batería — thermal runaway con gases tóxicos y calor autogenerado</div>
+    </div>
+    <div class="litio-right">
+      <span class="litio-badge">PERSONALIZACIÓN</span>
+      <span class="litio-extintor">Inmersión en agua / agente especializado</span>
+      <span class="litio-nota">Sin clase oficial en NOM-002-STPS-2010</span>
+    </div>
+  </div>
+</div>
+<div class="slabel">Flujo de la simulación — Escena por escena</div>
+<div class="flow">
+
+  <div class="flow-pair">
+    <div class="flow-step">
+      <div class="fs-n">ESCENAS 1 – 2</div>
+      <div class="fs-t">Inicio y configuración del área</div>
+      <div class="fs-d">El usuario coloca el headset Meta Quest 3. El sistema solicita definir límites del área segura. El instructor activa el modo Setup y coloca anclas de fuego y extintores en el entorno físico.</div>
+    </div>
+    <div class="flow-step">
+      <div class="fs-n">ESCENAS 3 – 4</div>
+      <div class="fs-t">Colocación de anclas de fuego y extintores</div>
+      <div class="fs-d">Se asignan 2–5 fuegos, cada uno con clase específica (A/B/C/D/K). Los extintores se posicionan intencionalmente alejados de los fuegos para forzar toma de decisiones y desplazamiento real.</div>
+    </div>
+  </div>
+
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-pair">
+    <div class="flow-step s-hi">
+      <div class="fs-n">ESCENAS 5 – 6 · NÚCLEO</div>
+      <div class="fs-t">Inicio de simulación + identificación</div>
+      <div class="fs-d">Indicador de progreso activo (ej. 0/3). Se activa el primer fuego con llamas realistas, partículas y sonido ambiental. El participante identifica la clase y selecciona el extintor correcto. El extintor virtual se alinea magnéticamente con el prop 3D impreso.</div>
+    </div>
+    <div class="flow-step s-hi">
+      <div class="fs-n">ESCENA 7 · NÚCLEO</div>
+      <div class="fs-t">Intento de extinción con técnica PASS</div>
+      <div class="fs-d">El participante apunta y activa el extintor aplicando PASS: Pull, Aim, Squeeze, Sweep. Si el tipo es correcto: el fuego reduce intensidad progresivamente, feedback visual y auditivo positivo, sistema avanza al siguiente fuego.</div>
+    </div>
+  </div>
+
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-pair">
+    <div class="flow-step s-warn">
+      <div class="fs-n">ESCENA 8 · BIFURCACIÓN</div>
+      <div class="fs-t">Extintor incorrecto — feedback inmediato</div>
+      <div class="fs-d">Indicadores visuales de advertencia cerca del fuego y el extintor. Señal de audio de error. Mensaje "Tipo de extintor incorrecto". El participante puede cambiar de extintor mientras el temporizador sigue corriendo.</div>
+    </div>
+    <div class="flow-step s-warn">
+      <div class="fs-n">ESCENA 9 · ESCALADA</div>
+      <div class="fs-t">Fuego fuera de control + evacuación</div>
+      <div class="fs-d">Si el tiempo se agota o los errores se repiten: el fuego crece, los efectos de sonido y partículas escalan. Estado "Fuego fuera de control" activado. Notificación prominente: "Evacúe de inmediato." Escenario registrado como fallido.</div>
+    </div>
+  </div>
+
+  <div class="flow-arrow">↓</div>
+
+  <div class="flow-step s-ok" style="border-radius:10px;padding:1rem 1.1rem">
+    <div class="fs-n">ESCENAS 10 – 11 · CIERRE</div>
+    <div class="fs-t">Progreso entre fuegos + resultados y debrief</div>
+    <div class="fs-d">El proceso se repite para cada ancla de fuego configurada. El indicador actualiza en tiempo real (ej. 3/5 fuegos completados). Cada fuego puede requerir un extintor diferente, forzando re-evaluación. Al finalizar: reporte completo con selección correcta/incorrecta, tiempo de respuesta y resultado por fuego. Mensaje de cierre sobre el propósito formativo de la experiencia.</div>
+  </div>
+
+</div>
+
+<!-- OUTCOMES -->
+<div class="slabel">Posibles resultados por fuego</div>
+<div class="outcomes">
+  <div class="outcome out-ok">
+    <div class="out-title">✓ Fuego controlado</div>
+    <div class="out-item">Extintor correcto seleccionado para la clase de fuego</div>
+    <div class="out-item">Técnica PASS aplicada correctamente</div>
+    <div class="out-item">Feedback visual y auditivo positivo</div>
+    <div class="out-item">Sistema avanza al siguiente fuego automáticamente</div>
+    <div class="out-item">Resultado registrado como éxito en el reporte</div>
+  </div>
+  <div class="outcome out-fail">
+    <div class="out-title">⚠ Evacuación inmediata</div>
+    <div class="out-item">Tiempo agotado o errores repetidos con tipo incorrecto</div>
+    <div class="out-item">Fuego escala en tamaño, sonido e intensidad de partículas</div>
+    <div class="out-item">Estado "Fuego fuera de control" activado</div>
+    <div class="out-item">Notificación prominente de evacuación</div>
+    <div class="out-item">Escenario registrado como fallido en el reporte</div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="slabel">Capacidad de la plataforma</div>
+<div class="stats">
+  <div><div class="stat-val">5</div><div class="stat-lbl">Clases de fuego</div></div>
+  <div><div class="stat-val">2–5</div><div class="stat-lbl">Fuegos por sesión</div></div>
+  <div><div class="stat-val">100%</div><div class="stat-lbl">Eval. en tiempo real</div></div>
+  <div><div class="stat-val">0</div><div class="stat-lbl">PC requerida</div></div>
+</div>
+
+<!-- DELIVERABLES -->
+<div class="slabel">Alcance y entregables del proyecto</div>
+<div class="deliverables">
+  <div class="del">
+    <div class="del-title"><span class="del-dot" style="background:#E8440A"></span>Concepto 1 — Desarrollo de software</div>
+    <div class="del-item">APK optimizado para Meta Quest 3</div>
+    <div class="del-item">203 horas de programación especializada</div>
+    <div class="del-item">Asistente virtual con instrucciones paso a paso en español</div>
+    <div class="del-item">Evaluación inmediata de desempeño (selección + PASS)</div>
+    <div class="del-item">Fuego y partículas realistas con GPU particles/URP</div>
+    <div class="del-item">Audio TTS español + SFX industriales</div>
+    <div class="del-item">Manual de instalación y guía de uso del simulador</div>
+    <div class="del-item">1 visita presencial (8 hrs) + videollamadas semanales</div>
+    <div class="del-item">Tiempo estimado de desarrollo: 4 semanas</div>
+  </div>
+  <div class="del">
+    <div class="del-title"><span class="del-dot" style="background:#0D47A1"></span>Concepto 2 — Prop físico (Opcional)</div>
+    <div class="del-item">Extintor en impresión 3D (prop háptico)</div>
+    <div class="del-item">Alineación magnética entre extintor virtual y físico</div>
+    <div class="del-item">Experiencia háptica y ergonómica realista</div>
+    <div class="del-item">Integración completa con Meta Quest 3 standalone</div>
+    <div class="del-item">Sin sensores externos, sin necesidad de PC</div>
+    <div class="del-item">Espacio recomendado: 2×2 m</div>
+    <div class="del-item">Instrucciones de seguridad incluidas en el manual</div>
+  </div>
+</div>
+
+
+
+</div>
+</body>
+</html>
